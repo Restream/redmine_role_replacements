@@ -1,0 +1,12 @@
+en:
+  label_role_replacement: "Role replacement"
+  label_role_replacement_plural: "Role replacements"
+  label_role_replacement_new: "New role replacement"
+  label_role_replacement_edit: "Edit role replacement"
+  label_role_before: "Role befor replacement"
+  label_role_after: "Role after replacement"
+  message_role_replacements_created: "Role replacement created succesfully"
+  message_role_replacements_updated: "Role replacement updated succesfully"
+  message_role_replacements_destroyed: "Role replacement destroyed succesfully"
+  message_role_replacements_not_destroyed: "Role replacement was not destroyed"
+  text_role_replacement_delete_confirmation: "Are you sure?"

@@ -1,0 +1,12 @@
+ru:
+  label_role_replacement: "Замена роли"
+  label_role_replacement_plural: "Замены ролей"
+  label_role_replacement_new: "Новая замена роли"
+  label_role_replacement_edit: "Изменить замену роли"
+  label_role_before: "Роль до замены"
+  label_role_after: "Роль после замены"
+  message_role_replacements_created: "Замена роли добавлена"
+  message_role_replacements_updated: "Замена роли обновлена"
+  message_role_replacements_destroyed: "Замена роли удалена"
+  message_role_replacements_not_destroyed: "Замена роли не может быть удалена"
+  text_role_replacement_delete_confirmation: "Вы уверены?"

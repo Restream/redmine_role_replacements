@@ -1,0 +1,17 @@
+class CreateRoleReplacements < ActiveRecord::Migration
+  def self.up
+    create_table :role_replacements do |t|
+      t.column :project_id, :integer
+      t.column :role_before_id, :integer
+      t.column :role_after_id, :integer
+
+      t.timestamps
+    end
+    add_index :role_replacements, :project_id
+  end
+
+  def self.down
+    remove_index :role_replacements, :project_id
+    drop_table :role_replacements
+  end
+end

@@ -1,0 +1,11 @@
+<h2><%= l(:label_role_replacement_edit) %></h2>
+
+<%= render :partial => 'form',
+    :locals => {
+        :role_replacement => @role_replacement,
+        :message => l(:button_update),
+        :url => url_for(:controller => "role_replacements",
+            :action => "update", :id => @role_replacement.id),
+        :role_before_list => [@role_replacement.role_before] + @project.non_replaced_roles } %>
+
+<% html_title(l(:label_role_replacement_edit)) -%>
