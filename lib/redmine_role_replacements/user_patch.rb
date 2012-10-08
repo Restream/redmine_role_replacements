@@ -28,9 +28,10 @@ module RedmineRoleReplacements
         RoleReplacement.find_each do |role_replacement|
           if by_roles.keys.include?(role_replacement.role_before)
             # first remove project by role_before
-            by_roles[role_replacement.role_before].delete(role_replacement.project)
-            # then add project by role_after
-            by_roles[role_replacement.role_after] << role_replacement.project
+            if by_roles[role_replacement.role_before].delete(role_replacement.project)
+              # then add project by role_after
+              by_roles[role_replacement.role_after] << role_replacement.project
+            end
           end
         end
         @projects_by_role_with_replacements = by_roles.delete_if { |role, projects| projects.empty? } 
