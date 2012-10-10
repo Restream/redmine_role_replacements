@@ -9,33 +9,52 @@ module RedmineRoleReplacements
     module InstanceMethods
       def roles_for_project_with_replacements(project)
         roles = roles_for_project_without_replacements(project)
-        
+
         if project.module_enabled?(:role_replacements)
+          # replace role if replacement is valid
           roles.map do |role|
-            role_replacement = project.role_replacements.find_by_role_before_id(role.id)
-            # replace role
-            (role_replacement && role_replacement.role_after) || role
+            replacement = project.role_replacements.find_by_role_before_id(role.id)
+            if replacement && replacement.valid_replacement?
+              replacement.role_after
+            else
+              role
+            end
           end
         else
           roles
-        end  
+        end
       end
 
       def projects_by_role_with_replacements
-        return @projects_by_role_with_replacements if @projects_by_role_with_replacements 
-        by_roles = projects_by_role_without_replacements
-        Role.builtin(true).each { |role| by_roles[role] ||= [] }
-        RoleReplacement.find_each do |role_replacement|
-          if by_roles.keys.include?(role_replacement.role_before)
-            # first remove project by role_before
-            if by_roles[role_replacement.role_before].delete(role_replacement.project)
-              # then add project by role_after
-              by_roles[role_replacement.role_after] << role_replacement.project
+        return @projects_by_role_with_replacements if @projects_by_role_with_replacements
+
+        hash = projects_by_role_without_replacements
+
+        @replacements = RoleReplacement.for_active_projects
+
+        @replacements.each do |replacement|
+          next unless replacement.valid_replacement?
+
+          if replacement.role_before.member?
+            if hash[replacement.role_before].detect(replacement.project)
+              hash[replacement.role_before].delete_if { |p| p == replacement.project }
+              hash[replacement.role_after] << replacement.project
+            end
+          else
+            roles_before = roles_for_project_without_replacements(replacement.project)
+            if roles_before.include?(replacement.role_before) && replacement.role_after.member?
+              hash[replacement.role_after] << replacement.project
             end
           end
         end
-        @projects_by_role_with_replacements = by_roles.delete_if { |role, projects| projects.empty? } 
+
+        hash.each do |role, projects|
+          projects.uniq!
+        end
+
+        @projects_by_role_with_replacements = hash.keep_if { |role, projects| projects.any? }
       end
+
     end
   end
 end

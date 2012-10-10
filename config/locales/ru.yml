@@ -5,6 +5,7 @@ ru:
   label_role_replacement_edit: "Изменить замену роли"
   label_role_before: "Роль до замены"
   label_role_after: "Роль после замены"
+  label_valid_replacement: "Допустимая замена?"
   message_role_replacements_created: "Замена роли добавлена"
   message_role_replacements_updated: "Замена роли обновлена"
   message_role_replacements_destroyed: "Замена роли удалена"
