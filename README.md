@@ -4,7 +4,17 @@ Redmine plugin for per-project role replacement.
 
 ## Installation
 
-Follow the plugin installation procedure at http://www.redmine.org/wiki/redmine/Plugins.
+1. Copy plugin directory into #{RAILS_ROOT}/plugins.
+If you are downloading the plugin directly from GitHub,
+you can do so by changing into your plugin directory and issuing a command like
+
+        git clone git://github.com/Undev/redmine_role_replacements.git
+
+2. Run the following command to upgrade your database (make a db backup before).
+
+        rake redmine:plugins:migrate RAILS_ENV=production
+
+3. Restart Redmine
 
 ## Usage
 
@@ -82,4 +92,8 @@ Result of role replacements:
 
 ## Testing
 
-rake test:plugins:all RAILS_ENV=test PLUGIN=redmine_role_replacements
+rake redmine:plugins:test NAME=redmine_role_replacements RAILS_ENV=test
+
+## Compatibility
+
+This version supports only redmine 2.x. See [redmine-1.x](https://github.com/Undev/redmine_role_replacements/tree/redmine-1.x) branch for Redmine 1.x.

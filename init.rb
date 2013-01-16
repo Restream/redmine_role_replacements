@@ -1,7 +1,6 @@
 require 'redmine'
-require 'dispatcher'
 
-Dispatcher.to_prepare do
+ActionDispatch::Callbacks.to_prepare do
   require_dependency 'project'
   require_dependency 'user'
   unless Project.included_modules.include? RedmineRoleReplacements::ProjectPatch
@@ -16,9 +15,10 @@ Redmine::Plugin.register :redmine_role_replacements do
   name 'Redmine Role Replacements plugin'
   author 'Danil Tashkinov'
   description 'Redmine plugin for per-project role replacements'
-  version '0.0.4'
+  version '0.1.0'
   url 'https://github.com/Undev/redmine_role_replacements'
   author_url 'https://github.com/Undev'
+  requires_redmine :version_or_higher => '2.0.0'
 
   project_module :role_replacements do
     permission :manage_role_replacements,
