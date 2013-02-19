@@ -38,11 +38,13 @@ module RedmineRoleReplacements
           if replacement.role_before.member?
             if hash[replacement.role_before].detect(replacement.project)
               hash[replacement.role_before].delete_if { |p| p == replacement.project }
+              hash[replacement.role_after] = [] unless hash.key?(replacement.role_after)
               hash[replacement.role_after] << replacement.project
             end
           else
             roles_before = roles_for_project_without_replacements(replacement.project)
             if roles_before.include?(replacement.role_before) && replacement.role_after.member?
+              hash[replacement.role_after] = [] unless hash.key?(replacement.role_after)
               hash[replacement.role_after] << replacement.project
             end
           end
