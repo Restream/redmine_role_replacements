@@ -181,7 +181,7 @@ class RoleReplacementsTest < ActionController::IntegrationTest
       end
       should "change on non member" do
         replacement = @project.role_replacements.create!({
-            :role_before => @role_anonymous,
+            :role_before => @role_member,
             :role_after => @role_non_member
         })
         assert replacement.valid_replacement?
@@ -191,8 +191,8 @@ class RoleReplacementsTest < ActionController::IntegrationTest
       end
       should "change on member" do
         replacement = @project.role_replacements.create!({
-            :role_before => @role_anonymous,
-            :role_after => @role_member
+            :role_before => @role_member,
+            :role_after => @role_other_member
         })
         assert replacement.valid_replacement?
         assert_project_visible_in_list(@project)
