@@ -10,7 +10,7 @@ module RedmineRoleReplacements
       def roles_for_project_with_replacements(project)
         roles = roles_for_project_without_replacements(project)
 
-        if project.module_enabled?(:role_replacements)
+        if project && project.module_enabled?(:role_replacements)
           # replace role if replacement is valid
           roles.map do |role|
             replacement = project.role_replacements.find_by_role_before_id(role.id)
