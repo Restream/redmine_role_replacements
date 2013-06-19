@@ -26,13 +26,11 @@ module RedmineRoleReplacements
       end
 
       def projects_by_role_with_replacements
-        return @projects_by_role_with_replacements if @projects_by_role_with_replacements
-
         hash = projects_by_role_without_replacements
 
-        @replacements = RoleReplacement.for_active_projects
+        replacements = RoleReplacement.for_active_projects
 
-        @replacements.each do |replacement|
+        replacements.each do |replacement|
           next unless replacement.valid_replacement?
 
           if replacement.role_before.member?
@@ -54,7 +52,7 @@ module RedmineRoleReplacements
           projects.uniq!
         end
 
-        @projects_by_role_with_replacements = hash.keep_if { |role, projects| projects.any? }
+        hash.keep_if { |role, projects| projects.any? }
       end
 
     end
