@@ -1,5 +1,8 @@
 # Redmine role replacement plugin
 
+[![Build Status](https://travis-ci.org/Undev/redmine_role_replacements.png)](https://travis-ci.org/Undev/redmine_role_replacements)
+[![Code Climate](https://codeclimate.com/github/Undev/redmine_role_replacements.png)](https://codeclimate.com/github/Undev/redmine_role_replacements)
+
 Redmine plugin for per-project role replacement.
 
 ## Installation
