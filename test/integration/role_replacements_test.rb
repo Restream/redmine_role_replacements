@@ -51,7 +51,7 @@ class RoleReplacementsTest < ActionController::IntegrationTest
         :role_before => @role_anonymous,
         :role_after => @role_non_member
     })
-    assert_false replacement.valid_replacement?
+    assert_equal false, replacement.valid_replacement?
     assert_project_not_visible_in_list(@project)
     assert_project_not_visible_in_jump_box(@project)
     assert_project_not_accessible(@project)
@@ -63,7 +63,7 @@ class RoleReplacementsTest < ActionController::IntegrationTest
         :role_before => @role_anonymous,
         :role_after => @role_member
     })
-    assert_false replacement.valid_replacement?
+    assert_equal false, replacement.valid_replacement?
     assert_project_not_visible_in_list(@project)
     assert_project_not_visible_in_jump_box(@project)
     assert_project_not_accessible(@project)
@@ -76,7 +76,7 @@ class RoleReplacementsTest < ActionController::IntegrationTest
         :role_before => @role_non_member,
         :role_after => @role_anonymous
     })
-    assert_false replacement.valid_replacement?
+    assert_equal false, replacement.valid_replacement?
     assert_project_not_visible_in_list(@project)
     assert_project_not_visible_in_jump_box(@project)
     assert_project_not_accessible(@project)
@@ -89,7 +89,7 @@ class RoleReplacementsTest < ActionController::IntegrationTest
         :role_before => @role_non_member,
         :role_after => @role_anonymous
     })
-    assert_false replacement.valid_replacement?
+    assert_equal false, replacement.valid_replacement?
     assert_project_not_visible_in_list(@project)
     assert_project_not_visible_in_jump_box(@project)
     assert_project_not_accessible(@project)
@@ -102,7 +102,7 @@ class RoleReplacementsTest < ActionController::IntegrationTest
         :role_before => @role_member,
         :role_after => @role_anonymous
     })
-    assert_false replacement.valid_replacement?
+    assert_equal false, replacement.valid_replacement?
     assert_project_visible_in_list(@project)
     assert_project_visible_in_jump_box(@project)
     assert_project_accessible(@project)
@@ -115,7 +115,7 @@ class RoleReplacementsTest < ActionController::IntegrationTest
         :role_before => @role_member,
         :role_after => @role_non_member
     })
-    assert_false replacement.valid_replacement?
+    assert_equal false, replacement.valid_replacement?
     assert_project_visible_in_list(@project)
     assert_project_visible_in_jump_box(@project)
     assert_project_accessible(@project)

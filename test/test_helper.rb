@@ -42,6 +42,6 @@ class ActiveSupport::TestCase
 
   def assert_project_not_accessible(project)
     get project_path(project)
-    assert_false response.success?, response.status
+    assert_equal false, response.success?, response.status
   end
 end
