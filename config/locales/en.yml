@@ -3,7 +3,7 @@ en:
   label_role_replacement_plural: "Role replacements"
   label_role_replacement_new: "New role replacement"
   label_role_replacement_edit: "Edit role replacement"
-  label_role_before: "Role befor replacement"
+  label_role_before: "Role before replacement"
   label_role_after: "Role after replacement"
   label_valid_replacement: "Is this replacement valid?"
   message_role_replacements_created: "Role replacement created succesfully"
