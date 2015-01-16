@@ -12,9 +12,9 @@ ActionDispatch::Callbacks.to_prepare do
 end
 
 Redmine::Plugin.register :redmine_role_replacements do
-  name 'Redmine Role Replacements plugin'
-  author 'Danil Tashkinov'
-  description 'Redmine plugin for per-project role replacements'
+  name 'Redmine Role Replacement Plugin'
+  author 'Undev'
+  description 'This plugin enables replacement of roles in Redmine projects.'
   version '0.1.4'
   url 'https://github.com/Undev/redmine_role_replacements'
   author_url 'https://github.com/Undev'
