@@ -118,6 +118,10 @@ The table below shows all possible role replacement variants and their results:
 * J — the project is visible in the **Jump to a project** drop-down list
 * V — the project can be accessed according to permissions of the target role (**Role After**)
 
+## Maintainers
+
+Danil Tashkinov, [github.com/nodecarter](https://github.com/nodecarter)
+
 ## License
 
 Copyright (c) 2015 Undev
