@@ -31,7 +31,7 @@ This plugin is compatible with Redmine 2.x only.
 
 3. This plugin requires a migration. Run the following command to upgrade your database (make a database backup before):  
 
-        rake redmine:plugins:migrate RAILS_ENV=production
+        bundle exec rake redmine:plugins:migrate RAILS_ENV=production
 
 4. Restart Redmine.
 
@@ -118,9 +118,13 @@ The table below shows all possible role replacement variants and their results:
 * J — the project is visible in the **Jump to a project** drop-down list
 * V — the project can be accessed according to permissions of the target role (**Role After**)
 
+## Maintainers
+
+Danil Tashkinov, [github.com/nodecarter](https://github.com/nodecarter)
+
 ## License
 
-Copyright (c) 2014 Undev
+Copyright (c) 2015 Undev
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
