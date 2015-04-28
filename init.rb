@@ -15,7 +15,7 @@ Redmine::Plugin.register :redmine_role_replacements do
   name 'Redmine Role Replacement Plugin'
   author 'Undev'
   description 'This plugin enables replacement of roles in Redmine projects.'
-  version '0.1.4'
+  version '1.0.0'
   url 'https://github.com/Undev/redmine_role_replacements'
   author_url 'https://github.com/Undev'
   requires_redmine :version_or_higher => '2.0.0'
