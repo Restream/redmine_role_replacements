@@ -13,12 +13,12 @@ class RoleReplacementsController < ApplicationController
   end
 
   def create
-    @role_replacement = @project.role_replacements.build(params[:role_replacement])
+    @role_replacement = @project.role_replacements.build(permitted_params)
     if @role_replacement.save
       redirect_to project_role_replacements_url(@project),
-          :notice => l(:message_role_replacements_created)
+        notice: l(:message_role_replacements_created)
     else
-      render :action => "new"
+      render action: 'new'
     end
   end
 
@@ -28,11 +28,11 @@ class RoleReplacementsController < ApplicationController
 
   def update
     @role_replacement = @project.role_replacements.find(params[:id])
-    if @role_replacement.update_attributes(params[:role_replacement])
+    if @role_replacement.update_attributes(permitted_params)
       redirect_to project_role_replacements_url(@project),
-          :notice => l(:message_role_replacements_updated)
+        notice: l(:message_role_replacements_updated)
     else
-      render :action => "edit"
+      render action: 'edit'
     end
   end
 
@@ -45,4 +45,11 @@ class RoleReplacementsController < ApplicationController
     end
     redirect_to project_role_replacements_url(@project)
   end
+
+  private
+
+  def permitted_params
+    params.required(:role_replacement).permit(:role_before_id, :role_after_id)
+  end
+
 end

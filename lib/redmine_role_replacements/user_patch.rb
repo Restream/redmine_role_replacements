@@ -48,11 +48,11 @@ module RedmineRoleReplacements
           end
         end
 
-        hash.each do |role, projects|
+        hash.each do |_, projects|
           projects.uniq!
         end
 
-        hash.keep_if { |role, projects| projects.any? }
+        hash.keep_if { |_, projects| projects.any? }
       end
 
     end

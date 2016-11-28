@@ -1,39 +1,39 @@
 <div class="contextual">
-<%= link_to l(:label_role_replacement_new),
-            new_project_role_replacement_path(@project),
-            :class => 'icon icon-add' %>
+  <%= link_to l(:label_role_replacement_new),
+      new_project_role_replacement_path(@project),
+      class: 'icon icon-add' %>
 </div>
 
-<h2><%=l(:label_role_replacement_plural)%></h2>
+<h2><%= l(:label_role_replacement_plural) %></h2>
 
 <% if @role_replacements.any? %>
   <table class="list role-replacements">
     <thead>
-      <tr>
-        <th><%= l(:label_role_before) %></th>
-        <th><%= l(:label_role_after) %></th>
-        <th><%= l(:label_valid_replacement) %></th>
-        <th></th>
-      </tr>
+    <tr>
+      <th><%= l(:label_role_before) %></th>
+      <th><%= l(:label_role_after) %></th>
+      <th><%= l(:label_valid_replacement) %></th>
+      <th></th>
+    </tr>
     </thead>
     <tbody>
-      <% @role_replacements.each do |role_replacement| %>
-        <tr id="role-replacement-<%= role_replacement.id %>" class="<%= cycle 'odd', 'even' %> role-replacement">
-          <td><%=h role_replacement.role_before %></td>
-          <td><%=h role_replacement.role_after %></td>
-          <td><%=h role_replacement.valid_replacement? %></td>
-          <td class="buttons">
-            <%= link_to l(:button_edit),
-                        edit_project_role_replacement_path(@project, role_replacement),
-                        :class => 'icon icon-edit' %>
-            <%= link_to l(:button_delete),
-                  project_role_replacement_path(@project, role_replacement),
-                  :method => :delete,
-                  :confirm => l(:text_role_replacement_delete_confirmation),
-                  :class => 'icon icon-del' %>
-          </td>
-        </tr>
-      <% end %>
+    <% @role_replacements.each do |role_replacement| %>
+      <tr id="role-replacement-<%= role_replacement.id %>" class="<%= cycle 'odd', 'even' %> role-replacement">
+        <td><%= h role_replacement.role_before %></td>
+        <td><%= h role_replacement.role_after %></td>
+        <td><%= h role_replacement.valid_replacement? %></td>
+        <td class="buttons">
+          <%= link_to l(:button_edit),
+              edit_project_role_replacement_path(@project, role_replacement),
+              class: 'icon icon-edit' %>
+          <%= link_to l(:button_delete),
+              project_role_replacement_path(@project, role_replacement),
+              method:  :delete,
+              confirm: l(:text_role_replacement_delete_confirmation),
+              class:   'icon icon-del' %>
+        </td>
+      </tr>
+    <% end %>
     </tbody>
   </table>
 <% else %>

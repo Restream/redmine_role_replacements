@@ -1,13 +1,13 @@
 # Redmine Role Replacement Plugin
 
-[![Build Status](https://travis-ci.org/Undev/redmine_role_replacements.png)](https://travis-ci.org/Undev/redmine_role_replacements)
-[![Code Climate](https://codeclimate.com/github/Undev/redmine_role_replacements.png)](https://codeclimate.com/github/Undev/redmine_role_replacements)
+[![Build Status](https://travis-ci.org/Restream/redmine_role_replacements.svg?branch=master)](https://travis-ci.org/Restream/redmine_role_replacements)
+[![Code Climate](https://codeclimate.com/github/Restream/redmine_role_replacements/badges/gpa.svg)](https://codeclimate.com/github/Restream/redmine_role_replacements)
 
 This plugin enables replacement of roles in Redmine projects.
 
 ## Compatibility
 
-This plugin is compatible with Redmine 2.x only.
+This plugin is compatible with Redmine 3.x.
 
 ## Installation
 
@@ -22,42 +22,37 @@ This plugin is compatible with Redmine 2.x only.
  
       Copy the plugin from GitHub using the following command:
 
-            git clone https://github.com/Undev/redmine_role_replacements.git plugins/redmine_role_replacements
+            git clone https://github.com/Restream/redmine_role_replacements.git plugins/redmine_role_replacements
 
-2. Update the Gemfile.lock file by running the following commands:  
-
-         rm Gemfile.lock  
-         bundle install
-
-3. This plugin requires a migration. Run the following command to upgrade your database (make a database backup before):  
+2. This plugin requires a migration. Run the following command to upgrade your database (make a database backup before):  
 
         bundle exec rake redmine:plugins:migrate RAILS_ENV=production
 
-4. Restart Redmine.
+3. Restart Redmine.
 
 Now you should be able to see the plugin in **Administration > Plugins**.
 
 ## Usage
 
 The plugin adds the **Role replacements** section to the **Roles and permissions** tab of the **Administration** menu. 
-![role replacements](role_replacement_1.PNG)
+![role replacements](doc/role_replacement_1.png)
 
 You can select the **Manage role replacements** check box for the roles which should be allowed to replace roles in the project. By default, **Manage role replacement** is enabled for managers only. We recommend creating a special role for role replacement management.
 
 To replace roles in a project, you should enable the **Role replacements** module in the project settings.  
-![role replacement module](role_replacement_2.PNG)
+![role replacement module](doc/role_replacement_2.png)
 
 If you have the **Manage role replacements** permission, you will see a new **Role replacements** tab, where you can add, edit and delete the project role replacement rules.
-![role replacements tab](role_replacement_3.PNG)
+![role replacements tab](doc/role_replacement_3.png)
 
 To add a role replacement rule, click **New role replacement**.  
-![add role replacement](role_replacement_4.PNG)
+![add role replacement](doc/role_replacement_4.png)
 
 In private projects, replacement of **Anonymous** and **Non member** roles is prohibited.
-![role replacement](role_replacement_5.PNG)
+![role replacement](doc/role_replacement_5.png)
 
 In public projects, all role replacement variants are possible.
-![role replacement](role_replacement_6.PNG)
+![role replacement](doc/role_replacement_6.png)
 
 The table below shows all possible role replacement variants and their results:
 
@@ -124,7 +119,7 @@ Danil Tashkinov, [github.com/nodecarter](https://github.com/nodecarter)
 
 ## License
 
-Copyright (c) 2015 Undev
+Copyright (c) 2016 Restream
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

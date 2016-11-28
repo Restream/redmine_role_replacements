@@ -1,7 +1,7 @@
 module RedmineRoleReplacements
   module ProjectPatch
     def self.included(base)
-      base.send :has_many, :role_replacements, :dependent => :destroy
+      base.send :has_many, :role_replacements, dependent: :destroy
       base.send :include, InstanceMethods
     end
 

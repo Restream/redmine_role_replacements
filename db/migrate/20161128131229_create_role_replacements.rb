@@ -6,8 +6,8 @@ class CreateRoleReplacements < ActiveRecord::Migration
       t.column :role_after_id, :integer
 
       t.timestamps
-    end
-    add_index :role_replacements, :project_id
+    end unless table_exists?(:role_replacements)
+    add_index :role_replacements, :project_id unless index_exists?(:role_replacements, :project_id)
   end
 
   def self.down

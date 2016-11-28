@@ -1,6 +1,4 @@
-<%= labelled_form_for role_replacement,
-    :url => url, 
-    :html => { :id => 'role-replacement-form' } do |f| %>
+<%= labelled_form_for role_replacement, url: url, html: { id: 'role-replacement-form' } do |f| %>
 
   <%= error_messages_for role_replacement %>
 
@@ -8,7 +6,7 @@
 
     <p><%= f.collection_select :role_before_id, role_before_list, :id, :name %></p>
     <p><%= f.collection_select :role_after_id, Role.sorted, :id, :name %></p>
-    
+
   </div>
 
   <%= submit_tag message %>

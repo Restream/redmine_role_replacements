@@ -10,28 +10,28 @@ class ActiveSupport::TestCase
   end
 
   def project_path(project)
-    url_for :only_path => true, :controller => 'projects', :action => 'show',
-        :id => project
+    url_for only_path: true, controller: 'projects', action: 'show',
+      id:              project
   end
 
   def assert_project_visible_in_list(project)
-    assert_equal 1, Project.visible.where('projects.id = ?',project.id).count,
-                 "Project #{project.id} should be visible for user #{User.current.id}"
+    assert_equal 1, Project.visible.where('projects.id = ?', project.id).count,
+      "Project #{project.id} should be visible for user #{User.current.id}"
   end
 
   def assert_project_not_visible_in_list(project)
     assert_equal 0, Project.visible.where('projects.id = ?', project.id).count,
-                 "Project #{project.id} should not be visible for user #{User.current.id}"
+      "Project #{project.id} should not be visible for user #{User.current.id}"
   end
 
   def assert_project_visible_in_jump_box(project)
     assert_equal 1, User.current.projects.where('projects.id = ?', project.id).count,
-                 "User #{User.current.id} should be a member of project #{project.id}"
+      "User #{User.current.id} should be a member of project #{project.id}"
   end
 
   def assert_project_not_visible_in_jump_box(project)
     assert_equal 0, User.current.projects.where('projects.id = ?', project.id).count,
-                 "User #{User.current.id} should not be a member of project #{project.id}"
+      "User #{User.current.id} should not be a member of project #{project.id}"
   end
 
   def assert_project_accessible(project)
