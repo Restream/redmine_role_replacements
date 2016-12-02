@@ -30,5 +30,5 @@ before_script:
   - bundle exec rake db:create db:migrate redmine:plugins:migrate
 
 script:
-  - bundle exec rake redmine:plugins:test NAME=$PLUGIN_NAME
+  - bundle exec rake redmine:plugins:test NAME=$PLUGIN_NAME RUBYOPT="-W0"
 
